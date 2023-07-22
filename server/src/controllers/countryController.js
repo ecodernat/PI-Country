@@ -24,15 +24,19 @@ const getCountriesName = async (name) => {
 
 const getCountryDetail = async (id) => {
   id = id.toUpperCase();
-  const country = await Country.findByPk(id, {
-    include: {
-      model: Activity,
-      through: {
-        attributes: [],
+  try {
+    const country = await Country.findByPk(id, {
+      include: {
+        model: Activity,
+        through: {
+          attributes: [],
+        },
       },
-    },
-  });
-  return country;
+    });
+    return country;
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 module.exports = { getCountries, getCountriesName, getCountryDetail };

@@ -1,0 +1,68 @@
+.main {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.form_container {
+  margin-top: 10vh;
+  padding: 15vh;
+  padding-top: 5vh;
+  border: black 3px solid;
+  background-color: #0000003d;
+}
+
+.title {
+  background-color: steelblue;
+}
+
+.btn_link span {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+  background-color: rgb(50, 50, 50);
+  padding: 12px 40px 12px 40px;
+  border-radius: 10px;
+}
+
+.btn_link span:hover {
+  cursor: pointer;
+  background-color: steelblue;
+}
+
+.btn_create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_create button {
+  margin-top: 10vh;
+  text-decoration: none;
+  color: white;
+  font-size: large;
+  background-color: rgb(50, 50, 50);
+  padding: 20px 50px 20px 50px;
+  border-radius: 10px;
+}
+.btn_create button:hover {
+  cursor: pointer;
+  background-color: steelblue;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 2px black;
+}
+
+.btn_create button:active {
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.error {
+  color: red;
+}
+
+.del {
+  color: black;
+}

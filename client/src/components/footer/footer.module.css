@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.main span {
+  /* color: white; */
+  font-size: xx-large;
+}
+
+.main button {
+  /* box-shadow: 0px 0px 5px 0px #000000; */
+  background-color: rgb(50, 50, 50);
+  color: white;
+  /* border-color: black; */
+  width: 60px;
+  border-radius: 10px;
+  border: none;
+}
+
+.main button:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: steelblue;
+  color: white;
+}
+
+.main button:disabled {
+  cursor: default;
+  font-weight: normal;
+  background-color: grey;
+}
