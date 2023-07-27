@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { postActivity, getCountries } from "../../redux/actions";
@@ -20,6 +20,7 @@ function validate(input) {
 
 function Create() {
   const dispatch = useDispatch();
+  const navidate = useNavigate();
 
   const countries = useSelector((state) => state.countries);
 
@@ -101,6 +102,7 @@ function Create() {
       season: "",
       countries: [],
     });
+    navidate("/home");
   };
 
   return (
