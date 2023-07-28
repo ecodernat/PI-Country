@@ -8,7 +8,7 @@ import {
   FILTER_BY_CONTINENTS,
   FILTER_BY_ACTIVITIES,
   RESET_FILTERS,
-} from "./actions";
+} from "../actions/actionTypes";
 
 const initialState = {
   countries: [],
