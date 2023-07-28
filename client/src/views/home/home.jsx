@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../../redux/actions";
 
 import Cards from "../../components/cards/cards";
-import Footer from "../../components/footer/footer";
 import NavBar from "../../components/navBar/navBar";
 
 import Filters from "../../components/filters/filters";
 
 import style from "./home.module.css";
+import Pagination from "../../components/pagination/pagination";
 
 function Home() {
   const dispatch = useDispatch();
@@ -34,16 +34,16 @@ function Home() {
         <Filters setPage={setCurrentPage} />
       </div>
       <div>
-        <ul>
-          <Cards countries={currentCountries} />
-        </ul>
-      </div>
-      <div>
-        <Footer
+        <Pagination
           countries={allCountries.length}
           setPage={setCurrentPage}
           currentPage={currentPage}
         />
+      </div>
+      <div>
+        <ul>
+          <Cards countries={currentCountries} />
+        </ul>
       </div>
     </div>
   );
