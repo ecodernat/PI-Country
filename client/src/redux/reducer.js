@@ -7,6 +7,7 @@ import {
   ORDER_BY_POPULATION,
   FILTER_BY_CONTINENTS,
   FILTER_BY_ACTIVITIES,
+  RESET_FILTERS,
 } from "./actions";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   countryID: {},
   activities: [],
   allCountries: [],
+  reset: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -108,6 +110,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         countries: filterActivities,
+      };
+    case RESET_FILTERS:
+      return {
+        ...state,
+        reset: action.payload,
       };
 
     default:

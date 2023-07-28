@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import SearchBar from "../searchBar/searchBar";
 
-import { getCountries } from "../../redux/actions";
+import { getCountries, resetFilters } from "../../redux/actions";
 
 import style from "./navBar.module.css";
 
@@ -12,6 +12,7 @@ function NavBar({ setCurrentPage }) {
 
   const handleReset = () => {
     dispatch(getCountries());
+    dispatch(resetFilters(true));
   };
 
   return (

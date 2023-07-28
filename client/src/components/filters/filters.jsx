@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   orderByName,
@@ -7,6 +7,7 @@ import {
   filterByContinents,
   getActivities,
   filterByActivities,
+  resetFilters,
 } from "../../redux/actions";
 
 import style from "./filters.module.css";
@@ -14,39 +15,82 @@ import style from "./filters.module.css";
 function Filters({ setPage }) {
   const dispatch = useDispatch();
 
+  const alphaOrder = "Alphabetical order";
+  const filterPopulation = "Filter by population";
+  const filterContinent = "Filter by continent";
+  const filterActivities = "Activities";
+
+  const [reset, setReset] = useState({
+    alphabetical: alphaOrder,
+    population: filterPopulation,
+    continent: filterContinent,
+    activities: filterActivities,
+  });
+
   const activities = useSelector((state) => state.activities);
+  const resetTrue = useSelector((state) => state.reset);
 
   const handleOrderName = (e) => {
     e.preventDefault();
+    setReset({
+      ...reset,
+      alphabetical: e.target.value,
+      population: filterPopulation,
+    });
     dispatch(orderByName(e.target.value));
   };
 
   const handleOrderPopulation = (e) => {
     e.preventDefault();
+    setReset({
+      ...reset,
+      population: e.target.value,
+      alphabetical: alphaOrder,
+    });
     dispatch(orderByPopulation(e.target.value));
   };
 
   const handleFilterContinent = (e) => {
     e.preventDefault();
+    setReset({
+      continent: e.target.value,
+      alphabetical: alphaOrder,
+      population: filterPopulation,
+      activities: filterActivities,
+    });
     setPage(1);
     dispatch(filterByContinents(e.target.value));
   };
 
   const handleFilterActivities = (e) => {
     e.preventDefault();
+    setReset({
+      activities: e.target.value,
+      alphabetical: alphaOrder,
+      population: filterPopulation,
+      continent: filterContinent,
+    });
     setPage(1);
     dispatch(filterByActivities(e.target.value));
   };
   useEffect(() => {
     dispatch(getActivities());
-  }, []);
+    if (resetTrue)
+      setReset({
+        alphabetical: alphaOrder,
+        population: filterPopulation,
+        continent: filterContinent,
+        activities: filterActivities,
+      });
+    dispatch(resetFilters(false));
+  }, [resetTrue]);
 
   return (
     <div className={style.main}>
       <select
         className={style.select}
-        defaultValue={"Alphabetical order"}
         onChange={handleOrderName}
+        value={reset.alphabetical}
       >
         <option disabled>Alphabetical order</option>
         <option value="A-Z">A-Z</option>
@@ -54,7 +98,7 @@ function Filters({ setPage }) {
       </select>
       <select
         className={style.select}
-        defaultValue={"Filter by population"}
+        value={reset.population}
         onChange={handleOrderPopulation}
       >
         <option disabled>Filter by population</option>
@@ -63,7 +107,7 @@ function Filters({ setPage }) {
       </select>
       <select
         className={style.select}
-        defaultValue={"Filter by continent"}
+        value={reset.continent}
         onChange={handleFilterContinent}
       >
         <option disabled>Filter by continent</option>
@@ -76,7 +120,7 @@ function Filters({ setPage }) {
       </select>
       <select
         className={style.select}
-        defaultValue={"Activities"}
+        value={reset.activities}
         onChange={handleFilterActivities}
       >
         <option disabled>Activities</option>

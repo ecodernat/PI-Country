@@ -9,6 +9,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const FILTER_BY_CONTINENTS = "FILTER_BY_CONTINENTS";
 export const FILTER_BY_ACTIVITIES = "FILTER_BY_ACTIVITIES";
+export const RESET_FILTERS = "RESET_FILTERS";
 
 export function getCountries() {
   return async function (dispatch) {
@@ -110,6 +111,13 @@ export function filterByContinents(payload) {
 export function filterByActivities(payload) {
   return {
     type: FILTER_BY_ACTIVITIES,
+    payload,
+  };
+}
+
+export function resetFilters(payload) {
+  return {
+    type: RESET_FILTERS,
     payload,
   };
 }
