@@ -19,6 +19,36 @@
   background-color: steelblue;
 }
 
+.name input {
+  height: 25px;
+  font-size: 20px;
+  border-color: black;
+  color: white;
+  background-color: #00000030;
+  border-radius: 5px;
+  caret-color: white;
+}
+
+.name input::placeholder {
+  color: white;
+  font-style: oblique;
+}
+
+.duration input {
+  height: 25px;
+  font-size: 20px;
+  border-color: black;
+  color: white;
+  background-color: #00000030;
+  border-radius: 5px;
+  caret-color: white;
+}
+
+.duration input::placeholder {
+  color: white;
+  font-style: oblique;
+}
+
 .btn_link span {
   text-decoration: none;
   color: white;
@@ -59,10 +89,37 @@
   box-shadow: 1px 1px 1px 1px black;
 }
 
+.btn_create button:disabled {
+  cursor: default;
+  font-weight: normal;
+  background-color: grey;
+  box-shadow: none;
+}
+
+.season select {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background-color: steelblue;
+  color: white;
+  cursor: pointer;
+}
+
+.select_countries select {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background-color: steelblue;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .error {
+  display: flex;
+  flex-direction: column;
   color: red;
 }
 
 .del {
-  color: black;
+  color: white;
 }

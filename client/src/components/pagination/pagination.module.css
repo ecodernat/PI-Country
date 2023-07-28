@@ -43,3 +43,7 @@ button:disabled {
 .current a {
   background-color: steelblue;
 }
+
+.current a:hover {
+  cursor: default;
+}

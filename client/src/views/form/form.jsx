@@ -12,8 +12,6 @@ function validate(input) {
     errors.name = "Don't forget the name!";
   } else if (!input.name.trim()) {
     errors.name = "Blank spaces are not accepted";
-  } else if (!input.difficulty) {
-    errors.difficulty = "Scroll here to determine the difficulty";
   }
   return errors;
 }
@@ -26,7 +24,7 @@ function Create() {
 
   const [input, setInput] = useState({
     name: "",
-    difficulty: "",
+    difficulty: "1",
     duration: "",
     season: "",
     countries: [],
@@ -117,7 +115,7 @@ function Create() {
           <div className={style.title}>
             <h3>Create the Activity!</h3>
           </div>
-          <div>
+          <div className={style.name}>
             <label>Name: </label>
             <input
               className={style.input}
@@ -131,7 +129,7 @@ function Create() {
           </div>
 
           <div>
-            <label>Difficulty: </label>
+            <label>Difficulty {`[${input.difficulty}]`}: </label>
             <input
               className={style.input}
               placeholder="Difficulty"
@@ -147,7 +145,7 @@ function Create() {
             )}
           </div>
 
-          <div>
+          <div className={style.duration}>
             <label>Duration: </label>
             <input
               className={style.input}
@@ -158,10 +156,10 @@ function Create() {
               name="duration"
               onChange={handleChange}
             />
-            hs
+            {" hs"}
           </div>
 
-          <div>
+          <div className={style.season}>
             <label>Season: </label>
             <select defaultValue={"Choose"} onChange={handleSelectSeason}>
               <option disabled>Choose</option>
@@ -175,7 +173,7 @@ function Create() {
 
           <label>Countries:</label>
 
-          <div>
+          <div className={style.select_countries}>
             <select defaultValue={"Choose"} onChange={handleSelectCountries}>
               <option disabled>Choose</option>
               {countries.map((c) => (
