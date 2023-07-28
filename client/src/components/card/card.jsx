@@ -8,7 +8,6 @@ function Card({ id, image, name, continent, population }) {
       <div className={style.main}>
         <img src={image} alt={name} />
         <span>{name}</span>
-        {population < 1000 ? <p>Poca poblacion</p> : null}
         <p>{continent ? continent : "Unknown"}</p>
       </div>
     </Link>

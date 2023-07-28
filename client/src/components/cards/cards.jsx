@@ -13,7 +13,6 @@ function Cards({ countries }) {
             name={country.name}
             image={country.image}
             continent={country.continent}
-            population={country.population}
           />
         ))}
     </div>
